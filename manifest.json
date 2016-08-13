@@ -1,10 +1,10 @@
 {
 	"manifest_version": 2,
 
-	"name": "Put Locker Watched Episode",
+	"name": "Putlocker Watched Episode",
 	"permissions": ["tabs","storage","*://*.putlocker.is/watch-*"],
 	"description": "Keep track of your episodes on Putlocker",
-	"version": "1.1",
+	"version": "1.2",
 	"background":{
 			 "page": "background/background.html"
 	},

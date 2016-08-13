@@ -1,21 +1,31 @@
 (function(){
 	var selector = document.querySelectorAll('td.entry');
-	var icon = 'http://www.gia.edu/img/sprites/icon-green-check.png';
+	var icon = ['http://www.meditechsac.com/imagen/check-mark-hi.png'];
 	var episodes = JSON.parse(localStorage.getItem('episode'));
+
+	var saveEpisode = function(name, elm){
+		episodes[name.replace(/\s+/g, '')] = name;
+		elm.src = icon[0];
+		localStorage.setItem('episode', JSON.stringify(episodes));
+	};
+
 	for(var i = 0; i< selector.length; i++){
 		var episodeId = selector[i].textContent.replace(/\s+/g, '');
 		if (episodes[episodeId] !== undefined) {
-	         var el = selector[i].previousSibling.children[0];
-	         el.src = icon;
-	         el.style.width = '15px';
+     		var el = selector[i].previousSibling.children[0];
+	        el.src = icon[0];
      	}
 		selector[i].addEventListener('click', function(){
-			var episode = this.nextSibling.textContent;
-			var el = this.children[0];
-			episodes[episode.replace(/\s+/g, '')] = episode;
-			el.src = icon;
-			el.style.width = '15px';
-			localStorage.setItem('episode', JSON.stringify(episodes));
+			var that = this;
+			if(that.nextSibling !== null){
+				var episodeBullet = that.nextSibling.textContent;
+				var bullet = that.children[0];
+				saveEpisode(episodeBullet, elm);
+			}else{
+				var episodeLink = that.textContent;
+				var icon = that.parentNode.children[0].children[0];
+				saveEpisode(episodeLink, icon);
+			}
 		});
 	}
 })();
