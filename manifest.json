@@ -4,7 +4,7 @@
 	"name": "Putlocker Watched Episode",
 	"permissions": ["tabs","storage","*://*.putlocker.is/watch-*"],
 	"description": "Keep track of your episodes on Putlocker",
-	"version": "1.2",
+	"version": "1.4",
 	"background":{
 			 "page": "background/background.html"
 	},
