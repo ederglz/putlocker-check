@@ -1,7 +1,7 @@
 (function(){
 	var selector = document.querySelectorAll('td.entry');
 	var icon = ['http://www.meditechsac.com/imagen/check-mark-hi.png', 'https://releasenotes.docs.salesforce.com/en-us/summer16/release-notes/help/images/crossmark_16x16.png', 'http://putlocker.is/images/bullet.gif'];
-	var episodes = JSON.parse(localStorage.getItem('episode'));
+	var episodes = JSON.parse(localStorage.getItem('episode')) || {};
 	var saveEpisode = function(name, elm){
 		episodes[name.replace(/\s+/g, '')] = name;
 		elm.src = icon[0];
