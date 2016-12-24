@@ -2,15 +2,15 @@
 	"manifest_version": 2,
 
 	"name": "Putlocker Watched Episode",
-	"permissions": ["tabs","storage","*://*.putlocker.is/watch-*"],
+	"permissions": ["tabs","storage", "*://*.putlockers.ch/watch-*"],
 	"description": "Keep track of your episodes on Putlocker",
-	"version": "1.5",
+	"version": "1.6",
 	"background":{
 			 "page": "background/background.html"
 	},
 	"content_scripts": [
     {
-      "matches": ["*://*.putlocker.is/watch-*"],
+      "matches": ["*://*.putlockers.ch/watch-*"],
       "js": ["background/background.js"]
     }
    ],
